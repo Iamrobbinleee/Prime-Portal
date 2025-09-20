@@ -88,7 +88,7 @@
 
             <!-- Centered login -->
             <div style="text-align: center; margin-top: -20px;">
-                <button type="submit" style="letter-spacing: 3px;">LOGIN</button>
+                <button style="letter-spacing: 3px;">{{ __('LOGIN') }}</button>
                 <p style="margin-top: 100px; color: whitesmoke; font-size: 14px;">
                     Copyright &copy; PRIME Portal 2025
                 </p>
@@ -240,10 +240,10 @@ img {
   padding: 0 30px;
   border-radius: 10px;
 }
-.login .container .login-form form button[type=submit] {
-  /*background: -webkit-linear-gradient(110deg, #f794a4 0%, #fdd6bd 100%);
+.login .container .login-form form button {
+  background: -webkit-linear-gradient(110deg, #f794a4 0%, #fdd6bd 100%);
   background: -o-linear-gradient(110deg, #f794a4 0%, #fdd6bd 100%);
-  background: linear-gradient(-20deg, #f794a4 0%, #fdd6bd 100%);*/
+  background: linear-gradient(-20deg, #f794a4 0%, #fdd6bd 100%);
   background: #4e5551;
   border: none;
   margin-top: 124px;
@@ -258,10 +258,10 @@ img {
   font-weight: bold;
   font-size: 20px;
 }
-.login .container .login-form form button[type=submit]:hover::after {
+.login .container .login-form form button:hover::after {
   opacity: 1;
 }
-.login .container .login-form form button[type=submit]::after {
+.login .container .login-form form button::after {
   content: "";
   position: absolute;
   z-index: -1;
@@ -269,15 +269,15 @@ img {
   opacity: 0;
   top: 0;
   left: 0;
-  /* -webkit-transition: 0.3s ease-in-out;
+  -webkit-transition: 0.3s ease-in-out;
   -o-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out; */
+  transition: 0.3s ease-in-out;
   right: 0;
   bottom: 0;
-  background: -webkit-gradient(linear, left bottom, left top, from(#09203f), to(#537895));
-  background: -webkit-linear-gradient(bottom, #09203f 0%, #537895 100%);
-  background: -o-linear-gradient(bottom, #09203f 0%, #537895 100%);
-  background: linear-gradient(to top, #09203f 0%, #537895 100%);
+  background: -webkit-gradient(linear, left bottom, left top, from(#14992a), to(#c6fac0));
+  background: -webkit-linear-gradient(bottom, #14992a 0%, #c6fac0 100%);
+  background: -o-linear-gradient(bottom, #14992a 0%, #c6fac0 100%);
+  background: linear-gradient(to top, #14992a 0%, #c6fac0 100%);
 }
 .login .container .remember-form {
   position: relative;
