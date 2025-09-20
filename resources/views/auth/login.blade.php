@@ -63,6 +63,7 @@
         
         <form action="{{ route('login') }}" method="POST">
             @csrf
+            <input type="text" placeholder="Account ID" name="account_id" style="color: black; background-color: #f2f2f2;" required>
             <input type="email" placeholder="Email" name="email" style="color: black; background-color: #f2f2f2;" :value="old('email')" required autofocus autocomplete="email">
             <input type="password" placeholder="Password" id="password" name="password" style="color: black; background-color: #f2f2f2;" required>
 
