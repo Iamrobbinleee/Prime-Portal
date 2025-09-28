@@ -26,4 +26,8 @@ class AvailedService extends Model
         'plus',
         'premium'
     ];
+
+    public function services(){
+        return $this->hasMany(Service::class);
+    }
 }

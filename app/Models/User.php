@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\AvailedService;
+use App\Models\Service;
 
 class User extends Authenticatable
 {
@@ -54,5 +56,27 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    protected $superadmins = ['superadmin1@example.com'];
+
+    public function isSuperAdmin(){
+        return $this->role == 'superadmin';
+    }
+
+    public function validSuperAdmin(){
+        // return in_array($this->username, $this->superadmins);
+        return in_array(strtolower($this->email), array_map("strtolower", $this->superadmins));
+    }
+
+    public function isAdmin(){
+        return $this->role == 'admin';
+    }
+    public function isNormal(){
+        return $this->role == 'normal';
+    }
+
+    public function availedServices(){
+        return $this->hasMany(AvailedService::class);
     }
 }

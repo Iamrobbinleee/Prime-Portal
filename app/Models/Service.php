@@ -24,4 +24,8 @@ class Service extends Model
         'developed_by',
         'remarks'
     ];
+
+    public function availedService(){
+        return $this->belongsTo(AvailedService::class);
+    }
 }

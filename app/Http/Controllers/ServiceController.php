@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Service;
 use App\Models\AvailedService;
 use App\Models\User;
-use Auth, Session, DB;
+use Illuminate\Support\Facades\Auth;
+use Session, DB;
 
 class ServiceController extends Controller
 {   
@@ -14,9 +15,7 @@ class ServiceController extends Controller
         if(Auth::check()) {
            $user = User::where('id', Auth::user()->id)->first();
 
-           $availed_services = AvailedService::where('user_id', $user->id)
-           ->where('account_id', $user->account_id)
-           ->get();
+           $availed_services = AvailedService::where('account_id', $user->account_id)->get();
 
            return response()->json([
                 'message' => 'Services',

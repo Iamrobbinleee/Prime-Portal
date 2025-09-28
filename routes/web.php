@@ -3,12 +3,17 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return redirect('/login');
 });
 
 Route::get('/dashboard', function () {
+    $user = Auth::user();
+    if($user->isSuperAdmin() && $user->validSuperAdmin()){
+        return view('superadmin.index');
+    }
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
