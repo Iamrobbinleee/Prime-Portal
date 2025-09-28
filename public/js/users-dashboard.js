@@ -24,7 +24,7 @@ $(document).ready(function() {
                                 <div class="card-header dark:bg-gray-700 text-white">
                                     <span>${as.service_name}</span>
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body text-center" style="font-size: 36px;">
                                     <i class="bi bi-amd"></i>
                                 </div>
                             </div>
