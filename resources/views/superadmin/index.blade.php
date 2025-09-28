@@ -6,18 +6,86 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-10xl mx-auto sm:px-6 lg:px-8">
             <div class="dark:bg-gray-900 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <div class="card">
-                        <div class="card-header bg-primary text-white">
+                        <div class="card-header dark:bg-gray-700 text-white">
                             <h3>LIST OF USERS</h3>
                         </div>
                         <div class="card-body">
-                            <!-- Services will be loaded here -->
-                            <div class="row" id="services-container">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-header dark:bg-gray-700 text-white">
+                                            <span>LINE CHART</span>
+                                        </div>
+                                        <div class="card-body text-center" style="font-size: 36px;">
+                                            <div id="line-chart"></div>
+                                        </div>
+                                    </div>     
+                                </div>
 
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-header dark:bg-gray-700 text-white">
+                                            <span>AREA CHART</span>
+                                        </div>
+                                        <div class="card-body text-center" style="font-size: 36px;">
+                                            <div id="area-chart"></div>
+                                        </div>
+                                    </div>     
+                                </div>
                             </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-header dark:bg-gray-700 text-white">
+                                            <span>BAR CHART (COLUMN)</span>
+                                        </div>
+                                        <div class="card-body text-center" style="font-size: 36px;">
+                                            <div id="bar-chart"></div>
+                                        </div>
+                                    </div>     
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-header dark:bg-gray-700 text-white">
+                                            <span>HORIZONTAL BAR CHART</span>
+                                        </div>
+                                        <div class="card-body text-center" style="font-size: 36px;">
+                                            <div id="horizontal-bar-chart"></div>
+                                        </div>
+                                    </div>     
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-header dark:bg-gray-700 text-white">
+                                            <span>PIE CHART</span>
+                                        </div>
+                                        <div class="card-body text-center" style="font-size: 36px;">
+                                            <div id="pie-chart"></div>
+                                        </div>
+                                    </div>     
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-header dark:bg-gray-700 text-white">
+                                            <span>DONUT CHART</span>
+                                        </div>
+                                        <div class="card-body text-center" style="font-size: 36px;">
+                                            <div id="donut-chart"></div>
+                                        </div>
+                                    </div>     
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -28,48 +96,11 @@
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script>
-$(document).ready(function() {
-    async function getAvailedServices() {
-        try {
-            const response = await axios.get('https://prime-portal.proj/availed-services');
-            const availed_services = response.data.services;
-
-            console.log(availed_services);
-
-            let container = $('#services-container');
-            container.empty();
-
-            availed_services.forEach(as => {
-                // let item = `
-                //     <div class="mb-2">
-                //         <span style="color:white;">${as.service_name}</span> - 
-                //         <a href="${as.service_url}" target="_blank" style="color:black;">${as.service_url}</a>
-                //     </div>
-                // `;
-
-                let item = `
-                    <div class="col-md-4">
-                        <a href="${as.service_url}" target="_blank" style="color:black;">
-                            <div class="card">
-                                <div class="card-header bg-primary text-white">
-                                    <span>${as.service_name}</span>
-                                </div>
-                                <div class="card-body">
-                                    <span>${as.service_url}</span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                `;
-                container.append(item);
-            });
-
-        } catch (error) {
-            console.error(error);
-        }
-    }
-
-    getAvailedServices();
-});
-</script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script src="{{ asset('js/superadmin-dashboard.js') }}"></script>
+<script src="{{ asset('js/line-chart.js') }}"></script>
+<script src="{{ asset('js/area-chart.js') }}"></script>
+<script src="{{ asset('js/bar-chart.js') }}"></script>
+<script src="{{ asset('js/horizontal-bar-chart.js') }}"></script>
+<script src="{{ asset('js/pie-chart.js') }}"></script>
+<script src="{{ asset('js/donut-chart.js') }}"></script>
